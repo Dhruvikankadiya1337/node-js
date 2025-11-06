@@ -1,11 +1,11 @@
-const {
-  areaOfTriangle,
-  areaOfCircle,
-  areaOfSquare,
-  areaOfRectengle,
-} = require("./math.js");
+import {
+  triangleArea,
+  circleArea,
+  squareArea,
+  rectangleArea,
+} from "./math.js";
 
-areaOfTriangle(10, 20);
-areaOfCircle(10);
-areaOfSquare(10);
-areaOfRectengle(20, 10);
+triangleArea(12, 15);
+circleArea(7);
+squareArea(9);
+rectangleArea(10, 20);
