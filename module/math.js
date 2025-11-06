@@ -1,20 +1,19 @@
-
 export const triangleArea = (base, height) => {
-  const result = 0.5 * base * height;
-  console.log(`Triangle area = ${result}`);
+  let triangle = 0.5 * base * height;
+  console.log(triangle);
 };
 
 export const circleArea = (radius) => {
-  const result = Math.PI * radius ** 2;
-  console.log(`Circle area = ${result.toFixed(2)}`);
+  let circle = Math.PI * radius * radius;
+  console.log(circle);
 };
 
 export const squareArea = (side) => {
-  const result = side ** 2;
-  console.log(`Square area = ${result}`);
+  let square = side * side;
+  console.log(square);
 };
 
 export const rectangleArea = (length, width) => {
-  const result = length * width;
-  console.log(`Rectangle area = ${result}`);
+  let rectangle = length * width;
+  console.log(rectangle);
 };

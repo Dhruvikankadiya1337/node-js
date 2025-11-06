@@ -5,7 +5,7 @@ import {
   rectangleArea,
 } from "./math.js";
 
-triangleArea(12, 15);
-circleArea(7);
-squareArea(9);
-rectangleArea(10, 20);
+triangleArea(10, 20);
+circleArea(10);
+squareArea(10);
+rectangleArea(20, 10);
