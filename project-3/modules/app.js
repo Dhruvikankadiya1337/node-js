@@ -2,7 +2,7 @@
 // const printName = require("./namemodule");
 // printName();
 
-// addmodule
+// * addmodule
 // const add = require("./addmodule");
 
 // let result = add(5, 10);
