@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo App</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f3f3f3;
+      padding: 40px;
+    }
+    .container {
+      width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0002;
+    }
+    input {
+      width: 70%;
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      background: royalblue;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .todo {
+      background: #ececec;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .edit-btn {
+      background: green;
+    }
+    .delete-btn {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Todo App</h2>
+
+    <input type="text" id="todoInput" placeholder="Enter Task..." />
+    <button onclick="addTodo()">Add</button>
+
+    <div id="todos"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
