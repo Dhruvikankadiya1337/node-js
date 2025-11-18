@@ -3,7 +3,7 @@ const input = document.getElementById("todoInput");
 
 
 function loadTodos() {
-  fetch("http://localhost:4000/todos")
+  fetch("http://localhost:4000")
     .then(function(res) {
       return res.json();
     })
@@ -39,10 +39,8 @@ function addTodo() {
     return;
   }
 
-  fetch("http://localhost:4000/todos", {
+  fetch("http://localhost:4000", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text: text })
   })
   .then(function() {
     input.value = "";
@@ -57,10 +55,8 @@ function editTodo(id, oldTask) {
   const newTask = prompt("Edit task:", oldTask);
   if (newTask === null || newTask.trim() === "") return;
 
-  fetch(`http://localhost:4000/todos/${id}`, {
+  fetch("http://localhost:4000",{
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text: newTask })
   })
   .then(function() {
     loadTodos();
@@ -71,7 +67,7 @@ function editTodo(id, oldTask) {
 }
 
 function deleteTodo(id) {
-  fetch(`http://localhost:4000/todos/${id}`, {
+  fetch("http://localhost:4000", {
     method: "DELETE"
   })
   .then(function() {
