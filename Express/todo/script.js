@@ -1,4 +1,4 @@
-const todosDiv = document.getElementById("todos");
+// const todosDiv = document.getElementById("todos");
 const input = document.getElementById("todoInput");
 
 
@@ -53,8 +53,7 @@ function addTodo() {
 
 function editTodo(id, oldTask) {
   const newTask = prompt("Edit task:", oldTask);
-  if (newTask === null || newTask.trim() === "") return;
-
+  
   fetch("http://localhost:4000",{
     method: "PUT",
   })
