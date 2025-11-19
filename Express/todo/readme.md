@@ -33,10 +33,10 @@ The project uses a lightweight structure with **Express.js**, **EJS templates**,
 ```
 /todo-app
 │
-├── app.js               # Main server file
+├── app.js              
 │
-├── public               # Static files
-│   └── index.ejs        # Main UI page
+├── public              
+│   └── index.ejs       
 
 ---
 
