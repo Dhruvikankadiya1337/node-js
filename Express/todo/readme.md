@@ -40,22 +40,15 @@ The project uses a lightweight structure with **Express.js**, **EJS templates**,
 
 ---
 
-## Installation
+
 
 
 ### 2. Start the Express server
 
 ```
 node app.js
-```
-
-### 3. Open the app in your browser
 
 ```
-http://localhost:4000
-```
-
----
 
 ## Routes
 
