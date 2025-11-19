@@ -1,43 +1,88 @@
 video : https://drive.google.com/file/d/1_OWjXxhqeorU1aiZIKUPEwKNeQqD1_s5/view?usp=sharing
 
-# Todo Application
+# TODO App
 
-A minimal full-stack Todo application built using **Node.js**, **Express**, **HTML**, **CSS**, and **Vanilla JavaScript**.  
-This project demonstrates clean API architecture, frontend–backend communication, and a simple user interface for managing tasks.
-
----
-
-## 1. Overview
-
-This project contains:
-
-- A backend REST API built with Express  
-- A lightweight frontend built using plain HTML, CSS, and JavaScript  
-- Full CRUD functionality (Create, Read, Update, Delete)  
-- Clear separation of frontend and backend structure  
-- Clean and readable codebase suitable for beginners and students
+A simple and clean TODO application built using **Node.js** and **Express.js**. This project helps you understand how backend routes, views, and basic data handling work together. It is perfect for beginners who want to learn Express.js with a small practical project.
 
 ---
 
-## 2. Features
+## Overview
 
-### Backend
-- RESTful API with GET, POST, PUT, DELETE  
-- In-memory data storage for simplicity  
-- Express-based routing  
-- CORS enabled  
-- Easy to extend for database integration
+This TODO App allows users to:
 
-### Frontend
-- Add new tasks  
-- Edit and update existing tasks  
-- Delete tasks  
-- Fetches data directly from the backend using Fetch API  
-- Clean and simple UI  
-- No frontend frameworks used  
+* Create new TODO items
+* View all existing TODOs on the homepage
+* Delete specific TODO items
+
+The project uses a lightweight structure with **Express.js**, **EJS templates**, and a **public folder** for styling. No database is used; data is stored temporarily during runtime.
 
 ---
 
-## 3. Project Structure
+## Features
+
+* Clean UI using EJS
+* Simple form submission for adding TODOs
+* Easy route handling in Express
+* Basic delete functionality
+* Beginner-friendly code structure
+
+---
+
+## Folder Structure
+
+```
+/todo-app
+│
+├── app.js               # Main server file
+│
+├── public               # Static files
+│   └── index.ejs        # Main UI page
+
+---
+
+## Installation
+
+
+### 2. Start the Express server
+
+```
+node app.js
+```
+
+### 3. Open the app in your browser
+
+```
+http://localhost:4000
+```
+
+---
+
+## Routes
+
+### GET `/`
+
+Loads the homepage and displays the list of TODO items.
+
+### POST `/add`
+
+Adds a new TODO item submitted through the form.
+
+### GET `/delete/:id`
+
+Deletes a specific TODO item using its ID.
+
+---
+
+## How It Works
+
+* When the user opens the homepage, Express renders the `index.ejs` file.
+* The TODO list is displayed using EJS loops.
+* A form on the page allows adding new TODO items.
+* Each TODO item includes a delete button that triggers a delete route.
+
+This simple flow teaches how server-side rendering and routing work together in Express apps.
+
+---
+
 
 
