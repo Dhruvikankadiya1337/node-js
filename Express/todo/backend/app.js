@@ -3,6 +3,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -43,4 +44,5 @@ app.delete("/todos/:id", (req, res) => {
   res.json({ message: "deleted" });
 });
 
-app.listen(4000, () => console.log("Server running on http://localhost:4000"));
+app.listen(4000, () => 
+  console.log("serving running on http://localhost:4000"));
