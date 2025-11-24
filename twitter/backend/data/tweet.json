@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "username": "mohit patil",
+    "tweet": "Just launched my mini Twitter UI project!",
+   "createdAt": "24-11-2025 10:00"
+  },
+  {
+    "id": 2,
+    "username": "raj patel",
+    "tweet": "Learning Node.js and Express is actually fun!",
+    "createdAt": "24-11-2025 10:05"
+  },
+  {
+    "id": 3,
+    "username": "komal sharma",
+    "tweet": "Frontend designing with HTML, CSS, JS.",
+      "createdAt": "24-11-2025 10:10"
+  },
+  {
+    "id": 4,
+    "username": "dev varma",
+    "tweet": "JavaScript makes everything possible",
+   "createdAt": "24-11-2025 10:15"
+  },
+  {
+    "id": 5,
+    "username": "riya patil",
+    "tweet": "API calling, routing, middlewae !!",
+   "createdAt": "24-11-2025 10:20"
+  }
+]
