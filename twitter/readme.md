@@ -33,3 +33,19 @@ UI should resemble **Twitter Home Timeline** (simple layout is enough).
 
 ## 📁 File/Folder Structure
 
+project/
+ ├─ backend/
+ │    ├─ app.js
+ │    ├─ routes/
+ │    │     └─ tweetRoutes.js
+ │    ├─ middleware/
+ │    │     ├─ logger.js
+ │    │     └─ validateTweet.js
+ │    ├─ services/
+ │    │     └─ tweetService.js   (user-defined module)
+ │    ├─ data/
+ │    │     └─ tweets.json
+ │    └─ package.json
+ └─ frontend/
+      └─ (React project)
+
