@@ -1,54 +1,35 @@
 # 🐦 Mini Twitter – Tweet Posting App
 
-📝 **Full-Stack Practical Assignment (React + Express + Middleware + Modules)**  
+📝 **Full-Stack Assignment (React + Express + Middleware + Modules)**
 
 ---
 
 ## 🚀 Project Overview
 
 Build a **Mini Twitter Home Page** where users can:  
+✔ Add, Edit, Delete, List Tweets  
 
-✔ Add a Tweet  
-✔ Edit a Tweet  
-✔ Delete a Tweet  
-✔ List All Tweets  
-
-The UI should look similar to **Twitter Home Timeline** (simple layout is enough).
+UI should resemble **Twitter Home Timeline** (simple layout is enough).
 
 ---
 
-## 🎯 Backend (Node + Express) Requirements
+## 🎯 Requirements
 
-### 1️⃣ Modules to Use
-
-- `express`  
-- `fs` module (core)  
-- `path` module (core)  
-- User-defined module (e.g., `tweetService.js`)  
-
-### 2️⃣ Routes Required (CRUD)
-
-| Method | Endpoint           | Description                          |
-|--------|------------------|--------------------------------------|
-| GET    | `/api/tweets`     | Return all tweets (from `tweets.json`) |
-| POST   | `/api/tweets`     | Add new tweet → save into `tweets.json` |
-| PUT    | `/api/tweets/:id` | Update existing tweet (only `tweet` field editable) |
-| DELETE | `/api/tweets/:id` | Delete tweet by ID                   |
-
-**POST Required Fields:**  
-
-| Field     | Type   | Required |
-|-----------|--------|----------|
-| username  | string | ✔        |
-| tweet     | string | ✔        |
-| createdAt | date   | auto-generated |
+- **Backend:** Node.js + Express + Modules (`fs`, `path`, user-defined)  
+- **CRUD API Routes:**  
+  - GET `/api/tweets` → list all tweets  
+  - POST `/api/tweets` → add tweet  
+  - PUT `/api/tweets/:id` → update tweet  
+  - DELETE `/api/tweets/:id` → delete tweet  
+- **Middleware:**  
+  - App-level: log METHOD + URL + time  
+  - Route-level: validate tweet (not empty, min 5 chars)  
+- **Frontend:** React app  
+  - Tweet input (username + content)  
+  - Display tweets list with edit/delete buttons  
+  - Fetch API for CRUD  
 
 ---
 
-### 3️⃣ Middleware Requirements
-
-**Application-level middleware:**  
-
-- Logs each request: `METHOD + URL + Time`  
-  Example:  
+## 📁 File/Folder Structure
 
