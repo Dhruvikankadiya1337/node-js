@@ -32,7 +32,7 @@ UI should resemble **Twitter Home Timeline** (simple layout is enough).
 ---
 
 ## 📁 File/Folder Structure
-
+```
 project/
  ├─ backend/
  │    ├─ app.js
@@ -48,4 +48,4 @@ project/
  │    └─ package.json
  └─ frontend/
       └─ (React project)
-
+```
