@@ -1,6 +1,6 @@
 import express from "express";
 import { getTweets, saveTweets } from "../services/tweetservice.js";
-import validateTweet from "../middleware/validateTweet.js";
+import validateTweet from "../middleware/validatetweet.js";
 
 const router = express.Router();
 

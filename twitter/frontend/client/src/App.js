@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./App.css";
 import LeftSidebar from "./components/leftside";
 import RightSidebar from "./components/rightside";
 import CreateTweet from "./components/createtweet";
-import TweetList from "./components/tweetlist";
+import TweetList from "./components/TweetList";
 
 function App() {
-  const [tweets, setTweets] = useState([
-    { id: 1, username: "@username", tweet: "This is a sample tweet! 🔥" },
-    { id: 2, username: "@harold", tweet: "Another cool post with image!" },
-  ]);
+  const [tweets, setTweets] = useState([]);
+
+  // Fetch tweets from backend
+  const fetchTweets = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/tweets");
+      const data = await res.json();
+      setTweets(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchTweets();
+  }, []);
 
   return (
     <div className="container">
       <LeftSidebar />
-      
+
       <main className="main">
-        <CreateTweet />
-        <TweetList tweets={tweets} />
+        <CreateTweet fetchTweets={fetchTweets} />
+        <TweetList tweets={tweets} fetchTweets={fetchTweets} />
       </main>
 
       <RightSidebar />

@@ -1,24 +1,43 @@
 import React, { useState } from "react";
 
-function CreateTweet({ fetchTweets }) {
+const CreateTweet = ({ fetchTweets }) => {
   const [username, setUsername] = useState("");
   const [tweet, setTweet] = useState("");
 
   const handleSubmit = async () => {
-    if (!tweet || tweet.length < 5) {
+    // Validation
+    if (!username.trim()) {
+      alert("Username cannot be empty");
+      return;
+    }
+
+    if (!tweet.trim() || tweet.trim().length < 5) {
       alert("Tweet must be at least 5 characters long");
       return;
     }
 
-    await fetch("/api/tweets", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, tweet })
-    });
+    try {
+      // Send POST request to backend
+      const response = await fetch("http://localhost:5000/api/tweets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, tweet })
+      });
 
-    setUsername("");
-    setTweet("");
-    fetchTweets();
+      if (!response.ok) {
+        throw new Error("Failed to post tweet");
+      }
+
+      // Reset input fields
+      setUsername("");
+      setTweet("");
+
+      // Refresh tweets in parent component
+      fetchTweets();
+    } catch (error) {
+      console.error("Error posting tweet:", error);
+      alert("Error posting tweet. Make sure the backend is running.");
+    }
   };
 
   return (
@@ -34,9 +53,9 @@ function CreateTweet({ fetchTweets }) {
         value={tweet}
         onChange={(e) => setTweet(e.target.value)}
       />
-      <button className="tweet-post-btn" onClick={handleSubmit}>Tweet</button>
+      <button onClick={handleSubmit}>Tweet</button>
     </div>
   );
-}
+};
 
 export default CreateTweet;
