@@ -27,6 +27,8 @@ GET → View all plants
 PUT → Update a plant
 
 DELETE → Remove a plant
+
+
 ---
 
 ## 📂 Project Structure
