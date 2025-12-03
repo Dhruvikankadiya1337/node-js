@@ -49,4 +49,4 @@ DELETE → Remove a plant
 ├─ package.json
 ```
 
-video : https://drive.google.com/file/d/1ucCYP--W75t8LXnvurLjTwhVANbHXFeL/view?usp=sharing
+video : https://drive.google.com/file/d/1rK0Yue06lECNo08kMrJkqrgwVXLsj7g6/view?usp=sharing
