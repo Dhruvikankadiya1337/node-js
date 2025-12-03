@@ -1,4 +1,4 @@
-# 🌱 Plant Store Backend API
+# 🌱 Plant Store 
 
 Welcome to the **Plant Store Backend**!  
 This API is built using **Node.js, Express, and MongoDB**, providing RESTful endpoints to **manage plants** in your store.  
