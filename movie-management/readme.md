@@ -24,31 +24,13 @@ A full-stack web application for managing movies with support for adding, editin
 
 ---
 
-```🏗 Tech Stack
+| Layer        | Technologies                                                         |
+| ------------ | -------------------------------------------------------------------- |
+| **Frontend** | React.js, React Router DOM, Axios, CSS (Custom Styling), React Icons |
+| **Backend**  | Node.js, Express.js, Multer (Image Upload), CORS                     |
+| **Database** | MongoDB, Mongoose                                                    |
+| **Tools**    | VS Code, thunder client, npm                                                |
 
-Frontend
-
-React.js
-
-React Router DOM
-
-Axios
-
-CSS (Custom Styling)
-
-React Icons
-
-Backend
-
-Node.js
-
-Express.js
-
-MongoDB + Mongoose
-
-Multer (for image upload)
-
-CORS enabled API ```
 
 ---
 ```
