@@ -24,7 +24,7 @@ A full-stack web application for managing movies with support for adding, editin
 
 ---
 
-🏗 Tech Stack
+```🏗 Tech Stack
 
 Frontend
 
@@ -48,7 +48,7 @@ MongoDB + Mongoose
 
 Multer (for image upload)
 
-CORS enabled API
+CORS enabled API ```
 
 ---
 ```
