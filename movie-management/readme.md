@@ -1,3 +1,5 @@
+output : https://drive.google.com/file/d/1qLMZid2ig80uil-oF7iFl5C0NvOxx-9u/view?usp=sharing
+
 🎬 Movie Management System
 
 A full-stack web application for managing movies with support for adding, editing, deleting, viewing and searching movies. The system includes image upload for movie posters, validation, and fully functional CRUD operations.
