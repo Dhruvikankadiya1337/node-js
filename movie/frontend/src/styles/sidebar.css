@@ -1,0 +1,13 @@
+.sidebar {
+  width:220px;
+  background: linear-gradient(180deg,#0b0b0b,#101010);
+  padding: 30px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  border-right: 1px solid rgba(255,255,255,0.03);
+}
+.logo { font-size:24px; color:#e50914; margin-bottom:10px; }
+.sidebar-nav { display:flex; flex-direction:column; gap:18px; margin-top:10px; }
+.s-link { color:#ddd; text-decoration:none; font-size:16px; }
+.s-link.active { color:#ff3333; font-weight:600; }

@@ -1,0 +1,4 @@
+.movie-row { display:flex; gap:16px; overflow-x:auto; padding-bottom:8px; }
+.movies-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap: 22px; margin-top: 18px; }
+.top-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; }
+.search-input { padding:10px 12px; border-radius:8px; border:none; background:#1b1b1b; color:#fff; }

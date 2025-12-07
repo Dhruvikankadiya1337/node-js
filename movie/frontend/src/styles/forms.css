@@ -1,0 +1,7 @@
+.form-container { max-width:600px; margin:30px auto; background:#161616; padding:24px; border-radius:10px; }
+.form-container h2 { color:#fff; margin-bottom:12px; }
+.form-container label { color:#ddd; font-size:14px; margin-top:10px; display:block; }
+.form-container input, .form-container textarea, .form-container select {
+  width:100%; padding:12px; margin-top:8px; border-radius:8px; border:none; background:#1b1b1b; color:#fff;
+}
+.submit-btn { margin-top:16px; background:#e50914; color:#fff; padding:12px 18px; border-radius:8px; border:none; cursor:pointer; }
