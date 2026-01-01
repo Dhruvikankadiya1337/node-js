@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(120deg, #f6f9ff, #eef1ff);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  color: #4f46e5;
+}
+
+.nav-links a,
+.nav-links button {
+  margin-left: 15px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 8px 14px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 6px;
+}
+
+.logout {
+  background: #ef4444;
+}
+
+/* Forms */
+.form-page {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-card {
+  width: 350px;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-card input,
+.form-card textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.form-card button {
+  width: 100%;
+  background: #4f46e5;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Blogs */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.blog-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
