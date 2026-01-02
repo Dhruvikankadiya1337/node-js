@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Blog - Blog Management</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="brand">Blog-Management</div>
+    <div id="navLinks"></div>
+  </nav>
+
+  <div class="container">
+    <h2>Create Blog</h2>
+    <form id="blogForm" enctype="multipart/form-data">
+      <input type="text" placeholder="Title" id="title" required>
+      <textarea placeholder="Content" id="content" required></textarea>
+      <input type="file" id="image" required>
+      <button class="create-btn" type="submit">Create</button>
+    </form>
+  </div>
+
+  <script type="module">
+    import { updateNavbar } from "../components/navbar.js";
+    updateNavbar();
+  </script>
+  <script type="module" src="../components/blog.js"></script>
+
+</body>
+</html>

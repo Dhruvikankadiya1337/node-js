@@ -7,15 +7,21 @@ import cors from "cors";
 
 const app = express();
 
+
+
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: ["http://localhost:3000", "http://localhost:3001"], // ✅ Add all frontend origins here
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true 
+  credentials: true
 }));
+
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/uploads", express.static("uploads"));
+
+
+app.use("/uploads/blog", express.static("uploads/blog"));
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/blogs", blogRoutes);

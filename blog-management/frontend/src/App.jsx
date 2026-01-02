@@ -1,36 +1,44 @@
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar.jsx";
+import { useEffect, useState } from "react";
 
-import Login from "./pages/login.jsx";
-import Register from "./pages/register.jsx";
-import Blogs from "./pages/blog.jsx";
-import AddBlog from "./pages/addblog.jsx";
+const API = "http://localhost:5000/api";
 
-import ProtectedRoute from "./components/protectroutes.jsx";
+function App() {
+  const [blogs, setBlogs] = useState([]);
 
-const App = () => {
+  useEffect(() => {
+    fetch(`${API}/blogs`)
+      .then(res => res.json())
+      .then(data => setBlogs(data));
+  }, []);
+
   return (
     <>
-      <Navbar />
+      <nav>
+        <h2>Blog Management System</h2>
+        <div>
+          <a href="/src/pages/login.html">Login</a>
+          <a href="/src/pages/register.html">Register</a>
+          <a href="/src/pages/blog.html">Blog</a>
+        </div>
+      </nav>
 
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Blogs />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-
-        {/* Protected Route */}
-        <Route
-          path="/add"
-          element={
-            <ProtectedRoute>
-              <AddBlog />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+      <div className="blogs">
+        {blogs.map(blog => (
+          <div className="blog" key={blog._id}>
+            <h3>{blog.title}</h3>
+            <p>{blog.content}</p>
+            <small>Author: {blog.author?.name}</small>
+            {blog.image && (
+              <img
+                src={`http://localhost:5000/${blog.image}`}
+                alt="blog"
+              />
+            )}
+          </div>
+        ))}
+      </div>
     </>
   );
-};
+}
 
 export default App;

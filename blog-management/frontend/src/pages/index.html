@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Blog Management</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">Blog-Management</div>
+    <div id="navLinks"></div>
+  </nav>
+
+  <!-- Blogs -->
+  <main>
+    <h2 style="text-align:center; color:#4e54c8; margin-top:20px;">All Blogs</h2>
+    <div id="blogsContainer" class="blogs-container"></div>
+  </main>
+
+  <!-- JS -->
+  <script type="module">
+    import { updateNavbar } from "../components/navbar.js";
+    updateNavbar();
+  </script>
+  <script type="module" src="../components/index.js"></script>
+</body>
+</html>
