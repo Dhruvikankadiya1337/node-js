@@ -56,5 +56,4 @@ Users can **signup, verify email via OTP, login, access protected routes, and lo
 
 ---
 
-d
 
