@@ -6,11 +6,11 @@ import { otpcollection } from "../models/otpmodels.js";
 
 // signup
 export const signup = async(req,res)=>{
-    const { email,password } = req.body;
+    const { email, password } = req.body;
     try{
         const hased = await bcrypt.hash(password,12);
         await authcollection.create({ email, password : hased});
-        res.json({status:true , message:"user signup successfully"});
+        res.status(201).json({status:true , message:"user signup successfully"});
     }catch(err){
         res.json({status:false, message:"user signup failed"});
     }
@@ -18,7 +18,7 @@ export const signup = async(req,res)=>{
 // signin 
 export const signin =  async (req,res)=>{
         const { email, password} = req.body
-        const user = await authcollection.findone({email})
+        const user = await authcollection.findOne({email})
         if(!user)
         {
             res.status(404).json({status:false , message: "user not fount"});
@@ -30,20 +30,19 @@ export const signin =  async (req,res)=>{
         }
         // otp sent 
         const status = await sendotp(email)
-        if(status){
-            res.json({statue:true , message:"otp sent successfully"});
-        }else{
-            res.json({status:false , message:"Failed to send otp"});
-        }
+        res.json(status);
 }
 
 // otp verification  
 export const otpverify = async(req,res)=>{
     const {email , otp} = req.body
     try{
-         const otpdata = await otpcollection.findOne({email , otp});
+         const otpdata = await otpcollection.findOne({
+            email ,
+            otp: Number(otp)
+        });
     if(!otpdata){
-        res.json({status:false, message:"otp invalid"});
+      return res.json({status:false, message:"otp invalid"});
     }
     // expiry check
     const currentTime = new Date(); 
@@ -52,11 +51,12 @@ export const otpverify = async(req,res)=>{
         return res.json({status:false , message:"your otp is expired"});
     }
     await otpcollection.deleteMany({email});
+
     const user = await authcollection.findOne({email});
 
     // jsonwebtoken- login 
-    const token = jwt.sign(user,process.env.SECRAT_KEY,{
-        expiresIn:"2h"
+    const token = jwt.sign({...user},process.env.SECRET_KEY,{
+        expiresIn: 1000 * 60 * 60
     });
       res.cookie("auth_token", token, {
             maxAge: 1000 * 60 * 60 * 2,
@@ -66,7 +66,7 @@ export const otpverify = async(req,res)=>{
     res.json({ status: true, message: "otp is verify and Signin successfully"});
     }
     catch (err) {
-        res.json({ status: false, message: err.message })
+        res.json({ status: false, message: "otp verification failed", err:err.message });
     }        
 
 }
@@ -93,12 +93,12 @@ export const changepassword = async(req,res)=>{
             return res.status(404).json({ status: false, message: "User not found" });
         }
         // oldpassword
-        const isMatch = await bcrypt.compare(oldPassword, user.password);
+        const isMatch = await bcrypt.compare(oldpassword , user.password);
         if(!isMatch) {
             return res.json({ status: false, message: "old password is invalid"});
         }
         // update password
-        const hashed = await bcrypt.hash(newPassword, 12);
+        const hashed = await bcrypt.hash(newpassword , 12);
         await authcollection.updateOne({ email }, {
             $set: {
                 password: hashed
@@ -114,14 +114,53 @@ export const changepassword = async(req,res)=>{
 //  forget password
 export const  forgetpassword = async(req , res)=>{
     const {email} = req.body;
-    const user = await  authcollection.findone({email});
-    if(!user){
-        res.status(404).json({status : false , message:"user not found"});
+    try{
+        const status = await sendotp(email);
+        res.json(status);
+    }catch(err){
+         res.json({status : false , message:err.message});
     }
-    const otpsent = await otpsender(email);
-    res.json(otpsent);
 } 
+// change forget password
 
+export const changeforgetpassword = async(req, res)=>{
+    const {email , password , otp} = req.body
+    try{   
+        const record = await otpcollection.findOne({
+            email , 
+            otp: Number(otp) 
+        });
+        if(!record){
+            return res.json({status:false , message:"otp is invalid "});
+        }
+
+         const currentTime = new Date(); 
+         if(record.expiry < currentTime){
+                return res.json({status:false , message:"otp is expired"});
+        }
+
+        const user = await authcollection.findOne({email})
+        if (!user) {
+            return res.json({ status: false, message: "user not found" });
+        }
+
+         const hased = await bcrypt.hash(password , 12); 
+         
+    await authcollection.updateOne({email , 
+        $set : {
+            password :hased
+        }
+    })
+     await otpcollection.deleteMany({ email });
+
+    return res.json({
+      status: true,
+      message: "password updated successfully"
+    });
+    }catch(err){
+         return res.json({status: false, message: err.message });
+    }
+}
 // verify otp for create password
 export const verifyotpForCreatePassword = async (req, res) => {
     const { email, otp, newPassword } = req.body;
@@ -146,6 +185,8 @@ export const verifyotpForCreatePassword = async (req, res) => {
     }
 }
 
+// login status
+
     export const  checkloginstatus = (req,res)=>{
         try{
             const token = res.cookie.auth_token;
@@ -153,27 +194,10 @@ export const verifyotpForCreatePassword = async (req, res) => {
             return res.json({status:false , message:"signin firsr"});
         }
 
-        const decoded = jwt.verify(token , process.env.SECRAT_KEY , {expiresIn :"2h"})
+        const decoded = jwt.verify(token , process.env.SECRET_KEY , {expiresIn :"2h"})
         return res.json({status:true , message:"already login " , user: decoded.payload});
 
         }catch(err){
             return res.json({status:false , message: "login out, please login first", err});
         }
     }
-// ₹3,068.72
-// ₹3,080.16
-// ₹10,934.27
-// ₹5,256.16
-// ₹1,150.65
-// ₹5,899.69
-// ₹9,338.75
-// ₹2,216.73
-// ₹2,077.71
-// ₹548.58
-// ₹1,111.96
-// ₹4,460.59
-// ₹579.16
-// ₹3,168.22
-// ₹1,115.37
-// ₹7,992.71
-// ₹3,947.21
