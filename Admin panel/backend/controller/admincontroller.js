@@ -3,7 +3,7 @@ import { usercollection } from '../models/userModels'
 export const updateProfileByAdmin = async (req, res) => {
     const { email, name, role, emp_id, joining_date, department, salary, profile_pic, phone, education, exp, address } = req.body;
     try {
-        const user = await UserCollection.findOne({ email });
+        const user = await usercollection.findOne({ email });
         if (!user) {
             return res.json({ status: false, message: "user not found" });
         }

@@ -21,6 +21,7 @@ export default function SignUp() {
 
       if (res.data.status) {
         navigate("/signin");
+        
       }
     } catch (err) {
       alert(err.response?.data?.message || err.message);

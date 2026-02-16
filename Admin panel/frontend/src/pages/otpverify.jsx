@@ -53,7 +53,7 @@ export default function VerifyOtp() {
             Resend OTP
           </button>
         </div>
-
+        
         <button
           onClick={handleVerifyOtp}
           className="btn btn-primary w-100"
