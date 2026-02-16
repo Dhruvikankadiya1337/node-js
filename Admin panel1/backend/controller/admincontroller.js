@@ -2,7 +2,6 @@ import {usercollection} from '../models/user.js'
 import Menu from "../models/menu.js";
 import Order from "../models/order.js";
 
-// Get all users
 export const getAllUsers = async (req, res) => {
   try {
     const users = await usercollection.find();
@@ -12,7 +11,6 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-// Update user by admin
 export const updateUserByAdmin = async (req, res) => {
   const { email, name, role } = req.body;
   try {
@@ -24,7 +22,6 @@ export const updateUserByAdmin = async (req, res) => {
   }
 };
 
-// Delete user
 export const deleteUser = async (req, res) => {
   const { email } = req.body;
   try {
@@ -35,7 +32,6 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-// View all orders
 export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find().populate("user").populate("items.menu");
@@ -45,7 +41,6 @@ export const getAllOrders = async (req, res) => {
   }
 };
 
-// Update order status
 export const updateOrderStatus = async (req, res) => {
   const { orderId, status } = req.body;
   try {
