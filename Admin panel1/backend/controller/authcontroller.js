@@ -1,5 +1,5 @@
 // import User from "../models/user.js";
-import { authcollection } from "../models/auth.js";
+import {authcollection} from "../models/auth.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -16,7 +16,6 @@ export const signup = async (req, res) => {
     res.json({ status: false, message: err.message });
   }
 };
-
 
 export const login = async (req, res) => {
   const { email, password } = req.body;

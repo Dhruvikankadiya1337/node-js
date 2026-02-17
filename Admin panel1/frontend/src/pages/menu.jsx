@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { base_uri } from "../utils/globalfunction";
+import { BASE_URL } from "../utils/globalfunction";
 
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -9,7 +9,7 @@ const Menu = () => {
     const fetchMenu = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${base_uri}/menu`, { headers: { Authorization: `Bearer ${token}` } });
+        const res = await axios.get(`${BASE_URL}/menu`, { headers: { Authorization: `Bearer ${token}` } });
         setMenuItems(res.data);
       } catch (err) {
         console.log(err);

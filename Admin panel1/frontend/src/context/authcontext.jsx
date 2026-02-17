@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  // login function
   const loginUser = (userData, authToken) => {
     setUser(userData);
     setToken(authToken);
@@ -30,7 +29,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("token", authToken);
   };
 
-  // logout function
   const logoutUser = () => {
     setUser(null);
     setToken(null);
@@ -40,7 +38,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("otpVerified");
   };
 
-  //  otp verification function
+
   const verifyOtp = () => {
     setIsOtpVerified(true);
     localStorage.setItem("otpVerified", "true");

@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/authcontext";
-import { base_uri } from "../utils/globalfunction";
+import { BASE_URL } from "../utils/globalfunction";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 
 const OtpVerify = () => {
   const [otp, setOtp] = useState("");
@@ -13,15 +12,19 @@ const OtpVerify = () => {
   const handleVerify = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${base_uri}/auth/verify-otp`, { userId: user._id, otp });
+      const res = await axios.post(`${BASE_URL}/otp/verify-otp`, {
+        userId: user._id, 
+        otp,
+      });
+
       if (res.data.status) {
-        alert("OTP verified successfully");
+        alert(res.data.message);
         navigate("/dashboard");
       } else {
         alert(res.data.message);
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       alert("OTP verification failed");
     }
   };
@@ -32,9 +35,17 @@ const OtpVerify = () => {
       <form onSubmit={handleVerify}>
         <div className="mb-3">
           <label>Enter OTP</label>
-          <input type="text" className="form-control" required value={otp} onChange={(e) => setOtp(e.target.value)} />
+          <input
+            type="text"
+            className="form-control"
+            required
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+          />
         </div>
-        <button type="submit" className="btn btn-success">Verify</button>
+        <button type="submit" className="btn btn-success">
+          Verify
+        </button>
       </form>
     </div>
   );

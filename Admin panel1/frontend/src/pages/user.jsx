@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { base_uri } from "../utils/globalfunction";
+import {BASE_URL } from "../utils/globalfunction";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -9,7 +9,7 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${base_uri}/admin/getallusers`, { headers: { Authorization: `Bearer ${token}` } });
+        const res = await axios.get(`${BASE_URL}/admin/getallusers`, { headers: { Authorization: `Bearer ${token}` } });
         setUsers(res.data);
       } catch (err) {
         console.log(err);

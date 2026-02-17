@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { base_uri } from "../utils/globalfunction";
+import { BASE_URL } from "../utils/globalfunction";
 
 const Reports = () => {
   const [reportData, setReportData] = useState([]);
@@ -9,7 +9,7 @@ const Reports = () => {
     const fetchReports = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${base_uri}/admin/reports`, { headers: { Authorization: `Bearer ${token}` } });
+        const res = await axios.get(`${BASE_URL}/admin/reports`, { headers: { Authorization: `Bearer ${token}` } });
         setReportData(res.data);
       } catch (err) {
         console.log(err);
