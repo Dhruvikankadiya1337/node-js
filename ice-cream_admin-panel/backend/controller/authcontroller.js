@@ -1,7 +1,7 @@
 import { authCollection } from "../models/authmodels.js";
 import bcrypt from "bcrypt";
 
-/* ================= SIGNUP ================= */
+/* SIGNUP */
 export const signup = async (req, res) => {
   const { email, password, confirmPassword } = req.body;
 
@@ -33,7 +33,7 @@ export const signup = async (req, res) => {
   }
 };
 
-/* ================= SIGNIN ================= */
+/* SIGNIN */
 export const signin = async (req, res) => {
   const { email, password } = req.body;
 
