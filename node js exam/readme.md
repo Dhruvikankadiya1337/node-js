@@ -58,6 +58,7 @@ Build a Todo app using the **MERN Stack** where:
 - 🔑 bcrypt
 - 🌱 dotenv
 
+## 📁 Project Structure
 ```
 backend/
 ├─ controller/
@@ -87,5 +88,3 @@ frontend/
 │ └─ main.jsx
 └─ package.json
 ```
-
-## 📁 Project Structure
