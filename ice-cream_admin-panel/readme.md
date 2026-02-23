@@ -32,7 +32,6 @@ This project helps admins control all backend data from a single dashboard.
 * 🚀 Express.js
 * 🍃 MongoDB (if used)
 
-video link:
 ---
 
 ## 📁 Project Structure
